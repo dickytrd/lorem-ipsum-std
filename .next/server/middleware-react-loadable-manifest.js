@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"components/Footer.js -> ./Skull\":{\"id\":\"components/Footer.js -> ./Skull\",\"files\":[\"static/chunks/_app-pages-browser_src_components_Skull_js.js\"]},\"components/Hero.js -> ./Skull.js\":{\"id\":\"components/Hero.js -> ./Skull.js\",\"files\":[\"static/chunks/_app-pages-browser_src_components_Skull_js.js\"]}}"

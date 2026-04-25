@@ -1,0 +1,28 @@
+import Navbar           from '@/components/Navbar'
+import Hero             from '@/components/Hero'
+import OpeningStatement from '@/components/OpeningStatement'
+import FeaturedCards    from '@/components/FeaturedCards'
+import Marquee          from '@/components/Marquee'
+import TheProcess       from '@/components/TheProcess'
+import OurWork          from '@/components/OurWork'
+import ClosingStatement from '@/components/ClosingStatement'
+import ContactForm      from '@/components/ContactForm'
+import Footer           from '@/components/Footer'
+
+export default function Home() {
+  return (
+    <main>
+      <Navbar />
+      <Hero />
+      <OpeningStatement />
+      <FeaturedCards />
+      <Marquee variant="tools" />
+      <TheProcess />
+      <OurWork />
+      <Marquee variant="clients" />
+      <ClosingStatement />
+      <ContactForm />
+      <Footer />
+    </main>
+  )
+}

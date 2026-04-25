@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/dicky/Documents/INTERNAL PORJECT/lorem-ipsum-studio 2/src/app/layout\":[\"static/media/49eec060ce8bd0da-s.p.woff2\",\"static/media/fa3e259cafa8f47e-s.p.woff2\",\"static/media/e4af272ccee01ff0-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
