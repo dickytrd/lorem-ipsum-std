@@ -42,15 +42,16 @@ export default function Skull() {
     scene.add(ambientLight, directionalLight)
 
     const loader = new GLTFLoader()
-    const skullMaterial = new THREE.MeshNormalMaterial()
-    const brainMaterial = new THREE.MeshNormalMaterial({ wireframe: true })
+    const skullMaterial = new THREE.MeshNormalMaterial({ wireframe: true })
+    const brainMaterial = new THREE.MeshNormalMaterial({})
 
     loader.load(
       '/models/humanSkull.glb',
       (glb) => {
         glb.scene.traverse((child) => {
           if (child.isMesh) {
-            if (child.name === 'Brain') {
+            const name = child.name.toLowerCase()
+            if (name.includes('brain')) {
               child.material = brainMaterial
             } else {
               child.material = skullMaterial
