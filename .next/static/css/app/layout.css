@@ -521,12 +521,13 @@ h1, h2, h3, h4, h5 {
   top: 10%;
   left: 0;
   width: 100vw;
-  height: 70vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
   z-index: 1;
+  overflow: visible;
 }
 
 .hero__skull-overlay > * {
@@ -577,6 +578,7 @@ h1, h2, h3, h4, h5 {
   gap: var(--s4);
   will-change: opacity, transform;
   width: 100%;
+  z-index: 2;
 }
 
 .hero__subtitle {
@@ -823,6 +825,7 @@ h1, h2, h3, h4, h5 {
 .process {
   padding: var(--s9) var(--gutter);
   /* border-top: var(--border); */
+  overflow: hidden;
 }
 
 .process__intro {
@@ -1151,6 +1154,8 @@ h1, h2, h3, h4, h5 {
   transition: border-color 0.25s;
   outline: none;
   -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   border-radius: 0;
 }
 .form-input:focus,
@@ -1295,5 +1300,69 @@ justify-content: flex-end;
     flex-wrap: wrap;
     gap: var(--s3);
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LOADER
+   ═══════════════════════════════════════════════════════════════ */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s4);
+  /* Sits above everything including navbar */
+  pointer-events: all;
+}
+
+/* Text stack — grey base + white fill overlaid */
+.loader__text-wrap {
+  position: relative;
+  display: inline-block;
+  line-height: 0.92;
+}
+
+.loader__text {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(48px, 9vw, 128px);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+/* Grey base — always showing */
+.loader__text--base {
+  color: var(--grey-800);
+}
+
+/* White fill — absolutely overlaid, clip-path animated by GSAP */
+.loader__text--fill {
+  position: absolute;
+  inset: 0;
+  color: var(--white);
+  /* clip-path set inline + animated by GSAP */
+  will-change: clip-path;
+}
+
+/* Small percentage counter */
+.loader__counter {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  color: var(--grey-600);
+  text-transform: uppercase;
+  margin-top: var(--s2);
+  min-width: 3ch;
+  text-align: center;
 }
 

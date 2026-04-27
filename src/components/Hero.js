@@ -1,14 +1,16 @@
 'use client'
 import { useEffect } from 'react'
 import { gsap } from 'gsap'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
+import SkullCanvasParticle from './SkullCanvasParticle'
 
 // Three.js must be dynamically imported (no SSR)
-const SkullCanvas = dynamic(() => import('./Skull.js'), { ssr: false })
+// const SkullCanvas = dynamic(() => import('./SkullCanvasParticle.js'), { ssr: false })
 
 export default function Hero() {
   useEffect(() => {
-    const tl = gsap.timeline({ delay: 0.2 })
+    const runEntrance = () => {
+      const tl = gsap.timeline({ delay: 0.3 })
 
     tl
       // Line 1: LOREM IPSUM
@@ -38,13 +40,21 @@ export default function Hero() {
         { y: 0, opacity: 1, duration: 0.9, ease: 'power2.out' },
         '-=0.4'
       )
+    }
+          // Wait for loader curtain wipe to start before running entrance
+    window.addEventListener('site:ready', runEntrance, { once: true })
+
+        return () => {
+      window.removeEventListener('site:ready', runEntrance)
+    }
+
   }, [])
 
   return (
     <section className="hero" id="home">
       {/* Skull overlay */}
       <div className="hero__skull-overlay">
-        <SkullCanvas />
+        <SkullCanvasParticle />
       </div>
 
       <div className="container">
