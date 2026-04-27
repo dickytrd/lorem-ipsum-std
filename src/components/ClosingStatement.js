@@ -30,8 +30,8 @@ export default function ClosingStatement() {
       ease: 'none',
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: 'top 75%',
-        end:   'bottom 35%',
+        start: 'top 50%',
+        end:   'bottom 100%',
         scrub: 1.2,
       },
     })

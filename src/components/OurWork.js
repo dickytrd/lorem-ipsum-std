@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Image from 'next/image'
 
 // ─── CONTENT ─────────────────────────────────────────────────
 const FEATURED_PROJECT = {
@@ -68,7 +69,13 @@ export default function OurWork() {
         {/* ── Featured — full width ─────────────────────── */}
         <div className="work__featured">
           <div className="work__featured-media">
-            <div className="img-placeholder" ref={featImgRef} role="img" aria-label={FEATURED_PROJECT.title} />
+            <Image
+              src="/images/lorem_ipsum.jpg"
+              alt={FEATURED_PROJECT.title}
+              fill
+              style={{ objectFit: 'cover', overflow: 'visible' }}
+              ref={featImgRef}
+            />
           </div>
           <div className="work__featured-info">
             <h3 className="work__title" style={{ fontSize: 'clamp(20px, 2.5vw, 36px)' }}>
@@ -80,10 +87,18 @@ export default function OurWork() {
 
         {/* ── Grid — 2×2 ───────────────────────────────── */}
         <div className="work__grid">
-          {WORK_ITEMS.map((item, i) => (
+          {WORK_ITEMS.map((item, i) => {
+            const images = ['/images/lorem.jpg', '/images/ipsum.jpg', '/images/dolor.jpg']
+            const imgSrc = images[i % images.length]
+            return (
             <article className="work__card" key={i}>
               <div className="work__card-media">
-                <div className="img-placeholder" role="img" aria-label={item.title} />
+                <Image
+                  src={imgSrc}
+                  alt={item.title}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
                 {/* Hover overlay */}
                 <div className="work__card-overlay" aria-hidden="true">
                   <h4 className="work__card-overlay-title">{item.title}</h4>
@@ -97,7 +112,8 @@ export default function OurWork() {
                 <span className="work__tag">{item.year}</span>
               </div>
             </article>
-          ))}
+            )
+          })}
         </div>
 
       </div>

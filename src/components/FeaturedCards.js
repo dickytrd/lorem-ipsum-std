@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Image from 'next/image'
 
 // ─── CONTENT ─────────────────────────────────────────────────
 const CARDS = [
@@ -10,18 +11,21 @@ const CARDS = [
     title: 'Skull Realm',
     desc:  'An immersive real-time 3D environment exploring depth, shadow, and human form through WebGL rendering.',
     year:  '2024',
+    image: '/images/lorem.jpg',
   },
   {
     tag: 'Motion · Brand',
     title: 'Flow State',
     desc:  'Full brand motion system for a digital-native company — from logo animation to scroll-driven microsites.',
     year:  '2024',
+    image: '/images/ipsum.jpg',
   },
   {
     tag: 'Interactive · UI',
     title: 'Parallax Suite',
     desc:  'A collection of interactive UI components built for performance-aware, scroll-driven storytelling.',
     year:  '2023',
+    image: '/images/dolor.jpg',
   },
 ]
 // ─────────────────────────────────────────────────────────────
@@ -71,7 +75,12 @@ export default function FeaturedCards() {
 
               {/* Placeholder image */}
               <div className="featured__card-img">
-                <div className="img-placeholder" role="img" aria-label={card.title} />
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
 
               <span className="featured__card-tag">{card.tag}</span>

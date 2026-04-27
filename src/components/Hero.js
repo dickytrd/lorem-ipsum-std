@@ -72,7 +72,7 @@ export default function Hero() {
         <div className="hero__meta">
           <p className="hero__subtitle">
             WebGL · Motion Design · Interactive Experiences
-            <br />Singapore
+            <br />IDN
           </p>
           <div className="hero__cta">
             <a href="#work" className="btn btn--solid">
